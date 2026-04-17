@@ -1,0 +1,56 @@
+// Nama : Tri Panji Utomo
+// NIM  : 2311102213
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas AJAX PHP</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        button { padding: 8px 16px; cursor: pointer; margin-bottom: 15px; }
+        #hasil-profil { 
+            padding: 15px; 
+            border: 1px dashed #777; 
+            background-color: #f9f9f9; 
+            display: inline-block; 
+            min-width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ambil Data Tanpa Reload</h2>
+
+    <button id="btn-tampil">Tampilkan Profil</button>
+    <br>
+    <div id="hasil-profil">Data belum ditarik dari server...</div>
+
+    <script>
+        const btnTampil = document.getElementById('btn-tampil');
+        const hasilProfil = document.getElementById('hasil-profil');
+
+        // klik
+        btnTampil.addEventListener('click', function() {
+            
+            hasilProfil.innerHTML = "<em>Mengambil data...</em>";
+            fetch('data.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Terjadi kesalahan pada server.');
+                    }
+                    return response.json(); 
+                })
+                .then(data => {
+                    hasilProfil.innerHTML = `Nama: ${data.nama} | Pekerjaan: ${data.pekerjaan} | Lokasi: ${data.lokasi}`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    hasilProfil.innerHTML = `<span style="color:red;">Gagal mengambil data dari server.</span>`;
+                });
+        });
+    </script>
+
+</body>
+</html>
