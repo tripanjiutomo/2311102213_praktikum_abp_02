@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504990229741",
+    "project_id": "todo-fcm-75bcf",
+    "storage_bucket": "todo-fcm-75bcf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504990229741:android:a9d2caa5b52549d4c198e4",
+        "android_client_info": {
+          "package_name": "com.example.todofcm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv9wQDtnFFbRDLgbx80UyOV8nn6P1Mzes"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
